@@ -22,8 +22,7 @@ export class TasksRepository extends Repository<Task> {
       );
     }
 
-    const tasks = await query.getMany();
-    return tasks;
+    return await query.getMany();
   }
 
   async createTask(createTaskDto: CreateTaskDto): Promise<Task> {
@@ -35,7 +34,6 @@ export class TasksRepository extends Repository<Task> {
       status: TaskStatus.OPEN,
     });
 
-    await this.save(task);
-    return task;
+    return await this.save(task);
   }
 }
