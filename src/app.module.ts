@@ -25,6 +25,7 @@ import { TasksModule } from './tasks/tasks.module';
           type: 'mysql',
           autoLoadEntities: true,
           synchronize: true,
+          keepConnectionAlive: true,
           host: configService.get('DB_HOST'),
           port: configService.get('DB_PORT'),
           username: configService.get('DB_USERNAME'),
