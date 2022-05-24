@@ -9,6 +9,6 @@ export class CreatePatientDto {
 
   @IsNotEmpty()
   phone: number;
-  
+
   email: string;
 }

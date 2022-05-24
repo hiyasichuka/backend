@@ -17,7 +17,7 @@ export class Patient {
   @Column()
   last_name: string;
 
-  @Column('date', { nullable: false })
+  @Column()
   birth_date: Date;
 
   @Column()
