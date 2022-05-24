@@ -5,6 +5,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { TasksModule } from './tasks/tasks.module';
 import { InjectionsModule } from './injections/injections.module';
 import { PatientsModule } from './patients/patients.module';
+import { ResponsesModule } from './responses/responses.module';
+import { CallingPlansModule } from './calling_plans/calling_plans.module';
+import { CallingsModule } from './callings/callings.module';
 
 @Module({
   imports: [
@@ -37,6 +40,9 @@ import { PatientsModule } from './patients/patients.module';
     TasksModule,
     InjectionsModule,
     PatientsModule,
+    ResponsesModule,
+    CallingsModule,
+    CallingPlansModule,
   ],
 })
 export class AppModule {}
