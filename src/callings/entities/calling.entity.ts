@@ -7,11 +7,15 @@ import {
   JoinColumn,
   ManyToOne,
   OneToOne,
+  PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 
 @Entity()
 export class Calling {
+  @PrimaryGeneratedColumn('uuid')
+  readonly id: string;
+
   @OneToOne(() => CallingPlan)
   @JoinColumn({ name: 'calling_id', referencedColumnName: 'id' })
   readonly calling_plan: CallingPlan;

@@ -1,15 +1,22 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { CallingsRepository } from './callings.repository';
 import { CreateCallingDto } from './dto/create-calling.dto';
 import { UpdateCallingDto } from './dto/update-calling.dto';
 
 @Injectable()
 export class CallingsService {
+  constructor(
+    @InjectRepository(CallingsRepository)
+    private callingsRepository: CallingsRepository
+  ) {}
+
   create(createCallingDto: CreateCallingDto) {
-    return 'This action adds a new calling';
+    return this.callingsRepository.create(createCallingDto);
   }
 
   findAll() {
-    return `This action returns all callings`;
+    return this.callingsRepository.find();
   }
 
   findOne(id: number) {
