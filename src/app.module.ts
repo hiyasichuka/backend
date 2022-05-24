@@ -3,6 +3,8 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { TasksModule } from './tasks/tasks.module';
+import { InjectionsModule } from './injections/injections.module';
+import { PatientsModule } from './patients/patients.module';
 
 @Module({
   imports: [
@@ -10,7 +12,6 @@ import { TasksModule } from './tasks/tasks.module';
       envFilePath: [`.env.stage.${process.env.STAGE}`],
       validationSchema: configValidationSchema,
     }),
-    TasksModule,
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
@@ -33,6 +34,9 @@ import { TasksModule } from './tasks/tasks.module';
         };
       },
     }),
+    TasksModule,
+    InjectionsModule,
+    PatientsModule,
   ],
 })
 export class AppModule {}
