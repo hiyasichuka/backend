@@ -9,5 +9,5 @@ export class CreateCallingPlanDto {
 
   @IsNotEmpty()
   @IsNumber()
-  recalling_num: number;
+  recall_num: number;
 }

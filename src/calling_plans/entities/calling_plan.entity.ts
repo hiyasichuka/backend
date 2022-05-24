@@ -22,7 +22,7 @@ export class CallingPlan {
   calling_date: Date;
 
   @Column()
-  recalling_num: number;
+  recall_num: number;
 
   @CreateDateColumn()
   readonly created_at?: Date;

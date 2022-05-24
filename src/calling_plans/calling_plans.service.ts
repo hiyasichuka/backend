@@ -1,15 +1,21 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { CallingPlansRepository } from './calling_plans.repository';
 import { CreateCallingPlanDto } from './dto/create-calling_plan.dto';
 import { UpdateCallingPlanDto } from './dto/update-calling_plan.dto';
 
 @Injectable()
 export class CallingPlansService {
+  constructor(
+    @InjectRepository(CallingPlansRepository)
+    private callingPlansRepository: CallingPlansRepository
+  ) {}
   create(createCallingPlanDto: CreateCallingPlanDto) {
-    return 'This action adds a new callingPlan';
+    return this.callingPlansRepository.create(createCallingPlanDto);
   }
 
   findAll() {
-    return `This action returns all callingPlans`;
+    return this.callingPlansRepository.find();
   }
 
   findOne(id: number) {
