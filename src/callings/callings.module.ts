@@ -4,6 +4,6 @@ import { CallingsController } from './callings.controller';
 
 @Module({
   controllers: [CallingsController],
-  providers: [CallingsService]
+  providers: [CallingsService],
 })
 export class CallingsModule {}

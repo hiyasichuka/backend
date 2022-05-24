@@ -4,6 +4,6 @@ import { CallingPlansController } from './calling_plans.controller';
 
 @Module({
   controllers: [CallingPlansController],
-  providers: [CallingPlansService]
+  providers: [CallingPlansService],
 })
 export class CallingPlansModule {}
